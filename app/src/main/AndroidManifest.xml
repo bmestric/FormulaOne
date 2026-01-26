@@ -15,15 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FormulaOne">
         <receiver
-            android:name=".FormulaOneReceiver"
+            android:name=".receiver.FormulaOneReceiver"
             android:enabled="true"
             android:exported="false"/>
 
         <activity
-            android:name=".HostActivity"
+            android:name=".ui.activity.HostActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.activity.SplashScreenActivity"
             android:exported="true"
             android:noHistory="true"
             android:theme="@style/SplashScreenTheme">

@@ -2,25 +2,31 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/menuItems"
+    app:startDestination="@id/menuRace"
     android:id="@+id/fragments">
 
     <fragment
-        tools:layout="@layout/fragment_items"
-        android:id="@+id/menuItems"
-        android:name="hr.bmestric.formulaone.fragment.ItemsFragment"
+        tools:layout="@layout/fragment_races"
+        android:id="@+id/menuRace"
+        android:name="hr.bmestric.formulaone.ui.fragment.RaceFragment"
         android:label="@string/items" />
 
     <fragment
         tools:layout="@layout/fragment_about"
         android:id="@+id/menuAbout"
-        android:name="hr.bmestric.formulaone.fragment.AboutFragment"
+        android:name="hr.bmestric.formulaone.ui.fragment.AboutFragment"
         android:label="@string/about" />
 
     <fragment
-        tools:layout="@layout/fragment_about"
-        android:id="@+id/menuAbout"
-        android:name="hr.bmestric.formulaone.fragment.AboutFragment"
-        android:label="@string/about" />
+        tools:layout="@layout/fragment_drivers"
+        android:id="@+id/menuDrivers"
+        android:name="hr.bmestric.formulaone.ui.fragment.DriverFragment"
+        android:label="@string/drivers" />
+
+    <fragment
+        tools:layout="@layout/fragment_settings"
+        android:id="@+id/menuSettings"
+        android:name="hr.bmestric.formulaone.ui.fragment.SettingsFragment"
+        android:label="@string/settings" />
 
 </navigation>

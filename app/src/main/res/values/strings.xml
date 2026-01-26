@@ -10,4 +10,7 @@
     <string name="really">Really exit app?</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="race">Race</string>
+    <string name="drivers">Drivers</string>
+    <string name="settings">Settings</string>
 </resources>

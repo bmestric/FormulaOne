@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HostActivity">
+    tools:context=".ui.activity.HostActivity">
 
     <fragment
         android:id="@+id/navController"
@@ -22,6 +22,6 @@
         app:itemTextColor="@drawable/navigation_text_color"
         android:layout_gravity="start"
         android:layout_width="@dimen/_162dp"
-        android:layout_height="@dimen/_240dp" />
+        android:layout_height="wrap_content" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

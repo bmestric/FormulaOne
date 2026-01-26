@@ -2,12 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuItems"
-        android:title="@string/items"
-        android:icon="@drawable/items" />
-
-    <item
         android:id="@+id/menuAbout"
         android:title="@string/about"
         android:icon="@drawable/about" />
+
+    <item
+        android:id="@+id/menuRace"
+        android:title="@string/race"
+        android:icon="@drawable/race_flag" />
+
+    <item
+        android:id="@+id/menuDrivers"
+        android:title="@string/drivers"
+        android:icon="@drawable/driver_helmet" />
+
+    <item
+        android:id="@+id/menuSettings"
+        android:title="@string/settings"
+        android:icon="@drawable/settings"/>
 </menu>

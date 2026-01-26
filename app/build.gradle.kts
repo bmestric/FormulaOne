@@ -5,9 +5,7 @@ plugins {
 
 android {
     namespace = "hr.bmestric.formulaone"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "hr.bmestric.formulaone"
