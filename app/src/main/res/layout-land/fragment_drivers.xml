@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragment.RaceFragment">
+    tools:context=".ui.fragment.DriverFragment">
 
-    <!-- Year Selection Spinner -->
+    <!-- Year Selection Spinner - More compact in landscape -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/_16dp"
+        android:padding="@dimen/_12dp"
         android:gravity="center_vertical"
         android:background="?attr/colorPrimary">
 
@@ -38,12 +38,14 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <!-- RecyclerView with reduced padding for landscape - Grid handled in code -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRaces"
+            android:id="@+id/rvDrivers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/_8dp"
-            tools:listitem="@layout/race" />
+            android:padding="@dimen/_4dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/driver" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -52,8 +54,17 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
+        <TextView
+            android:id="@+id/tvEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_drivers_found"
+            android:textSize="@dimen/_16sp"
+            android:textColor="?android:textColorSecondary"
+            android:visibility="gone" />
+
     </FrameLayout>
 
 </LinearLayout>
-
 

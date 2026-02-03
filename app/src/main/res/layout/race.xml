@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8dp"
+    app:cardElevation="@dimen/_4dp"
+    app:cardCornerRadius="@dimen/_8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_16dp">
+
+        <ImageView
+            android:id="@+id/ivCircuitImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200dp"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="@dimen/_8dp"
+            tools:src="@drawable/default_track" />
+
+        <TextView
+            android:id="@+id/tvRaceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_18sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="@string/monaco_grand_prix" />
+
+        <TextView
+            android:id="@+id/tvRaceLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4dp"
+            android:textSize="@dimen/_14sp"
+            android:textColor="?android:attr/textColorSecondary"
+            tools:text="@string/monaco_circuit_de_monaco" />
+
+        <TextView
+            android:id="@+id/tvRaceDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4dp"
+            android:textSize="@dimen/_14sp"
+            android:textColor="?android:attr/textColorSecondary"
+            tools:text="@string/date_preview" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

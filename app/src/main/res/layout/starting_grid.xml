@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_4dp"
+    app:cardElevation="@dimen/_2dp"
+    app:cardCornerRadius="@dimen/_8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Team Color Stripe -->
+        <View
+            android:id="@+id/viewTeamColor"
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="match_parent"
+            android:background="#FF0000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_12dp"
+            android:gravity="center_vertical">
+
+        <!-- Position -->
+        <TextView
+            android:id="@+id/tvPosition"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="@dimen/_18sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:gravity="center" />
+
+        <!-- Driver Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_12dp">
+
+            <TextView
+                android:id="@+id/tvDriverName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M VERSTAPPEN"
+                android:textSize="@dimen/_16sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <TextView
+                android:id="@+id/tvDriverNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#1"
+                android:textSize="@dimen/_12sp"
+                android:textColor="?android:textColorSecondary" />
+
+        </LinearLayout>
+
+        <!-- Lap Time -->
+        <TextView
+            android:id="@+id/tvLaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1:23.456"
+            android:textSize="@dimen/_14sp"
+            android:textColor="?android:textColorPrimary"
+            android:layout_marginStart="@dimen/_8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
