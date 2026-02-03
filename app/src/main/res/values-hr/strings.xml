@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FormulaOne</string>
+    <string name="no_internet">Nema interneta</string>
+    <string name="hello_blank_fragment">Pozdrav prazan fragment</string>
+    <string name="about_text">Ova aplikacija pruža najnovije informacije o Formula 1 utrkama, uključujući najnovije vijesti i rezultate utrka. Ostanite informirani i ne propustite ni trenutak akcije!</string>
+    <string name="items">Stavke</string>
+    <string name="about">O aplikaciji</string>
+    <string name="exit">Izlaz</string>
+    <string name="really">Zaista želite izaći iz aplikacije?</string>
+    <string name="cancel">Odustani</string>
+    <string name="ok">U redu</string>
+    <string name="race">Utrka</string>
+    <string name="drivers">Vozači</string>
+    <string name="settings">Postavke</string>
+    <string name="select_year">Odaberite godinu:</string>
+    <string name="year_spinner">Godina:</string>
+    <string name="race_caps">UTRKA</string>
+    <string name="date_preview">23. svibnja 2026.</string>
+    <string name="monaco_circuit_de_monaco">Monako • Circuit de Monaco</string>
+    <string name="monaco_grand_prix">Velika nagrada Monaka</string>
+    <string name="driver_headshot">Fotografija vozača</string>
+    <string name="team_icon">Ikona tima</string>
+    <string name="no_drivers_found">Nema pronađenih vozača</string>
+    <string name="year">godina</string>
+
+    <!-- Settings Screen -->
+    <string name="language">Jezik</string>
+    <string name="select_language">Odaberite željeni jezik</string>
+    <string name="english">Engleski</string>
+    <string name="croatian">Hrvatski</string>
+
+    <string name="theme">Tema</string>
+    <string name="select_theme">Odaberite željenu temu</string>
+    <string name="light_mode">Svijetla tema</string>
+    <string name="dark_mode">Tamna tema</string>
+
+    <string name="app_info">Informacije o aplikaciji</string>
+    <string name="version">Verzija 1.0.0</string>
+    <string name="apply">primjeni</string>
+    <string name="settings_applied">postavke primjenjene</string>
+    <string name="show_results">prikaži rezultate</string>
+    <string name="starting_grid">Početne pozicije</string>
+</resources>

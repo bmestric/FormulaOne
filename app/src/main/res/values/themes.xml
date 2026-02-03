@@ -10,6 +10,27 @@
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:navigationBarColor">@color/f1_black</item>
+
+        <!-- Text colors for light theme -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/f1_light_gray</item>
+
+        <!-- Navigation drawer background -->
+        <item name="navigationViewStyle">@style/Widget.App.NavigationView</item>
+
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:dropDownListViewStyle">@style/SpinnerDropDownListView</item>
+    </style>
+
+    <style name="SpinnerDropDownListView" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">@color/f1_light_gray</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+
+    <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@drawable/navigation_text_color</item>
     </style>
 
     <style name="SplashScreenTheme" parent="Theme.FormulaOne">
@@ -22,3 +43,27 @@
         <item name="android:textColorPrimary">@color/f1_black</item>
     </style>
 </resources>
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Theme.FormulaOne" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
+<!--        <item name="colorPrimary">@color/f1_red</item>-->
+<!--        <item name="colorPrimaryVariant">@color/f1_red_dark</item>-->
+<!--        <item name="colorOnPrimary">@color/white</item>-->
+
+<!--        <item name="colorSecondary">@color/yellow_flag</item>-->
+<!--        <item name="colorOnSecondary">@color/black</item>-->
+
+<!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
+<!--        <item name="android:navigationBarColor">@color/f1_black</item>-->
+<!--    </style>-->
+
+<!--    <style name="SplashScreenTheme" parent="Theme.FormulaOne">-->
+<!--        <item name="android:textSize">@dimen/_35sp</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:fontFamily">cursive</item>-->
+<!--        <item name="android:windowBackground">@color/f1_red</item>-->
+<!--        <item name="android:statusBarColor">@color/f1_red</item>-->
+<!--        <item name="android:navigationBarColor">@color/f1_red</item>-->
+<!--        <item name="android:textColorPrimary">@color/f1_black</item>-->
+<!--    </style>-->
+<!--</resources>-->
