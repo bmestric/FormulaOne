@@ -8,4 +8,8 @@ interface DriverApi {
     @GET("drivers")
     suspend fun getDriversBySession(
         @Query("session_key") sessionKey: Int): List<DriverDto>
+
+    @GET("drivers")
+    suspend fun getDriversByYear(
+        @Query("session_key") sessionKey: Int? = null): List<DriverDto>
 }

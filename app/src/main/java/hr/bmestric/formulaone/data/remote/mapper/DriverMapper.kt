@@ -11,7 +11,7 @@ fun DriverDto.toDomain() : Driver {
         fullName = this.fullName,
         teamName = this.teamName,
         teamColour = this.teamColour,
-        headshotUrl = this.headshotUrl
+        headshotUrl = this.headshotUrl ?: ""
     )
 }
 
