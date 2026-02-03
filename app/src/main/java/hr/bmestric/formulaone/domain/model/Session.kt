@@ -12,3 +12,4 @@ data class Session(
     val year: Int,
     val meetingKey: Int
 )
+
