@@ -1,5 +1,6 @@
 package hr.bmestric.formulaone.ui.activity
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -11,11 +12,24 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import hr.bmestric.formulaone.R
 import hr.bmestric.formulaone.databinding.ActivityHostBinding
+import hr.bmestric.formulaone.utils.LocaleHelper
+import hr.bmestric.formulaone.utils.PreferencesManager
+import hr.bmestric.formulaone.utils.ThemeHelper
 
 class HostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHostBinding
 
+    override fun attachBaseContext(newBase: Context) {
+        val context = LocaleHelper.setLocale(
+            newBase,
+            PreferencesManager.getLanguage(newBase)
+        )
+        super.attachBaseContext(context)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeHelper.applyStoredTheme(this)
+
         super.onCreate(savedInstanceState)
         handleTransition()
         binding = ActivityHostBinding.inflate(layoutInflater)
