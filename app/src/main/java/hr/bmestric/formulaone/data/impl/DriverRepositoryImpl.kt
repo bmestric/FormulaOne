@@ -1,11 +1,15 @@
 package hr.bmestric.formulaone.data.impl
 
 import hr.bmestric.formulaone.data.remote.api.DriverApi
+import hr.bmestric.formulaone.data.remote.api.SessionApi
 import hr.bmestric.formulaone.data.remote.mapper.toDomain
 import hr.bmestric.formulaone.domain.model.Driver
 import hr.bmestric.formulaone.domain.repository.DriverRepository
 
-class DriverRepositoryImpl(private val driverApi: DriverApi) : DriverRepository {
+class DriverRepositoryImpl(
+    private val driverApi: DriverApi,
+    private val sessionApi: SessionApi
+) : DriverRepository {
     override suspend fun getDriversBySession(sessionKey: Int): List<Driver> {
         val dtos = driverApi.getDriversBySession(sessionKey = sessionKey)
         return dtos.toDomain()
@@ -17,5 +21,22 @@ class DriverRepositoryImpl(private val driverApi: DriverApi) : DriverRepository 
     ): Driver? {
         val allDrivers = getDriversBySession(sessionKey)
         return allDrivers.find { it.driverNumber == driverNumber }
+    }
+
+    override suspend fun getDriversByYear(year: Int): List<Driver> {
+        // Get race sessions for the year
+        val sessions = sessionApi.getRaceSession(year = year, sessionType = "Race")
+
+        // If no sessions found, return empty list
+        if (sessions.isEmpty()) return emptyList()
+
+        // Get drivers from the latest race session of the year
+        val latestSession = sessions.maxByOrNull { it.dateStart }
+
+        return if (latestSession != null) {
+            getDriversBySession(latestSession.sessionKey)
+        } else {
+            emptyList()
+        }
     }
 }

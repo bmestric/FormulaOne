@@ -16,4 +16,8 @@ class SessionRepositoryImpl(private val sessionApi: SessionApi) : SessionReposit
         return dtos.toDomain()
     }
 
+    override suspend fun getSessionsByMeeting(meetingKey: Int): List<Session> {
+        val dtos = sessionApi.getSessionsByMeeting(meetingKey)
+        return dtos.toDomain()
+    }
 }
