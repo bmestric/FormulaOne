@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_16dp">
 
-        <!-- Driver Headshot -->
         <ImageView
             android:id="@+id/ivDriverHeadshot"
             android:layout_width="@dimen/_120dp"
@@ -25,10 +24,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@drawable/driver_helmet" />
 
-        <!-- Team Color Accent Bar -->
         <View
             android:id="@+id/viewTeamColor"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="@dimen/_4dp"
             android:layout_marginTop="@dimen/_12dp"
             app:layout_constraintTop_toBottomOf="@id/ivDriverHeadshot"
@@ -36,7 +34,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:background="#FF0000" />
 
-        <!-- Driver Number -->
         <TextView
             android:id="@+id/tvDriverNumber"
             android:layout_width="wrap_content"
@@ -49,10 +46,9 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="#1" />
 
-        <!-- Broadcast Name (e.g., "M VERSTAPPEN") -->
         <TextView
             android:id="@+id/tvBroadcastName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_12dp"
             android:textSize="@dimen/_20sp"
@@ -65,10 +61,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="M VERSTAPPEN" />
 
-        <!-- Full Name -->
         <TextView
             android:id="@+id/tvFullName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4dp"
             android:textSize="@dimen/_16sp"
@@ -80,7 +75,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Max Emilian Verstappen" />
 
-        <!-- Team Name with Icon -->
         <ImageView
             android:id="@+id/ivTeamIcon"
             android:layout_width="@dimen/_20dp"
@@ -94,7 +88,7 @@
 
         <TextView
             android:id="@+id/tvTeamName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8dp"
             android:textSize="@dimen/_14sp"

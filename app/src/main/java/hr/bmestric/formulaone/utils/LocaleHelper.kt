@@ -21,9 +21,4 @@ object LocaleHelper {
             context
         }
     }
-
-    fun applyLocale(context: Context) {
-        val language = PreferencesManager.getLanguage(context)
-        setLocale(context, language)
-    }
 }

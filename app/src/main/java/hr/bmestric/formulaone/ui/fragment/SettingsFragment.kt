@@ -86,7 +86,6 @@ class SettingsFragment : Fragment() {
             PreferencesManager.LANGUAGE_CROATIAN -> binding.rbCroatian.isChecked = true
         }
 
-        // Load saved theme preference
         selectedTheme = PreferencesManager.getTheme(requireContext())
         when (selectedTheme) {
             PreferencesManager.THEME_LIGHT -> binding.rbLightMode.isChecked = true

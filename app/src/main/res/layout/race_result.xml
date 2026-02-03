@@ -14,7 +14,6 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <!-- Team Color Stripe -->
         <View
             android:id="@+id/viewTeamColor"
             android:layout_width="@dimen/_32dp"
@@ -49,7 +48,7 @@
         tools:text="#1" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginStart="@dimen/_12dp"

@@ -21,8 +21,8 @@ import kotlinx.coroutines.launch
 class RaceInfoFragment : Fragment() {
     private lateinit var binding: FragmentRaceInfoBinding
     private var showingStartingGrid = true
-    private var sessionKey: Int = 0  // Race session key
-    private var meetingKey: Int = 0  // Meeting key to find qualifying session
+    private var sessionKey: Int = 0
+    private var meetingKey: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,17 +41,15 @@ class RaceInfoFragment : Fragment() {
             val raceCircuit = bundle.getString("raceCircuit", "")
             val dateStart = bundle.getString("dateStart", "")
             val circuitImage = bundle.getString("circuitImage")
-            sessionKey = bundle.getInt("sessionKey", 0)  // Race session
-            meetingKey = bundle.getInt("meetingKey", 0)  // Meeting to find qualifying
+            sessionKey = bundle.getInt("sessionKey", 0)
+            meetingKey = bundle.getInt("meetingKey", 0)
 
             Log.d("RaceInfoFragment", "Race sessionKey: $sessionKey, meetingKey: $meetingKey")
 
-            // Display race information
             binding.tvRaceName.text = raceName
             binding.tvRaceLocation.text = "$raceCountry • $raceCircuit"
             binding.tvRaceDate.text = dateStart?.toFormattedRaceDate() ?: dateStart
 
-            // Load circuit image
             if (!circuitImage.isNullOrEmpty()) {
                 Picasso.get()
                     .load(circuitImage)
@@ -60,14 +58,12 @@ class RaceInfoFragment : Fragment() {
                     .into(binding.ivCircuitImage)
             }
 
-            // Toggle button to switch between starting grid and results
             binding.btnToggleView.setOnClickListener {
                 showingStartingGrid = !showingStartingGrid
                 updateToggleButton()
                 loadRaceData()
             }
 
-            // Load initial data (starting grid)
             updateToggleButton()
             loadRaceData()
         }
@@ -114,20 +110,18 @@ class RaceInfoFragment : Fragment() {
         Log.d("RaceInfoFragment", "Race session: $sessionKey, Meeting: $meetingKey")
 
         try {
-            // Starting grid comes from QUALIFYING session, not race session!
-            // We need to find the qualifying session for this meeting
             Log.d("RaceInfoFragment", "Finding qualifying session for meeting: $meetingKey")
             val qualifyingSessionKey = findQualifyingSessionKey(meetingKey)
 
             if (qualifyingSessionKey == null) {
-                Log.w("RaceInfoFragment", "⚠️ No qualifying session found for meeting: $meetingKey")
+                Log.w("RaceInfoFragment", "No qualifying session found for meeting: $meetingKey")
                 binding.rvResults.visibility = View.GONE
                 binding.tvEmptyState.visibility = View.VISIBLE
                 binding.tvEmptyState.text = "No qualifying session found for this race"
                 return
             }
 
-            Log.d("RaceInfoFragment", "✅ Qualifying session found: $qualifyingSessionKey")
+            Log.d("RaceInfoFragment", "Qualifying session found: $qualifyingSessionKey")
             Log.d("RaceInfoFragment", "Fetching starting grid from qualifying session: $qualifyingSessionKey")
 
             val startingGrid = RepositoryProvider.startingGridRepository.getStartingGrid(qualifyingSessionKey)
@@ -150,18 +144,18 @@ class RaceInfoFragment : Fragment() {
                 binding.rvResults.visibility = View.GONE
                 binding.tvEmptyState.visibility = View.VISIBLE
                 binding.tvEmptyState.text = "No starting grid data available for this race"
-                Log.w("RaceInfoFragment", "⚠️ Starting grid is EMPTY for qualifying session: $qualifyingSessionKey")
+                Log.w("RaceInfoFragment", "Starting grid is EMPTY for qualifying session: $qualifyingSessionKey")
             } else {
                 binding.rvResults.visibility = View.VISIBLE
                 binding.tvEmptyState.visibility = View.GONE
                 val adapter = StartingGridAdapter(startingGrid, drivers)
                 binding.rvResults.layoutManager = LinearLayoutManager(requireContext())
                 binding.rvResults.adapter = adapter
-                Log.d("RaceInfoFragment", "✅ Adapter set with ${startingGrid.size} items")
-                Log.d("RaceInfoFragment", "✅ RecyclerView adapter item count: ${adapter.itemCount}")
+                Log.d("RaceInfoFragment", "Adapter set with ${startingGrid.size} items")
+                Log.d("RaceInfoFragment", "RecyclerView adapter item count: ${adapter.itemCount}")
             }
         } catch (e: Exception) {
-            Log.e("RaceInfoFragment", "❌ ERROR fetching starting grid: ${e.message}", e)
+            Log.e("RaceInfoFragment", "ERROR fetching starting grid: ${e.message}", e)
             binding.rvResults.visibility = View.GONE
             binding.tvEmptyState.visibility = View.VISIBLE
             binding.tvEmptyState.text = "Error loading starting grid"
@@ -169,20 +163,10 @@ class RaceInfoFragment : Fragment() {
         Log.d("RaceInfoFragment", "============ END STARTING GRID DEBUG ============")
     }
 
-    /**
-     * Finds the qualifying session key for a given meeting.
-     * Starting grid data comes from qualifying, not the race session.
-     *
-     * For Sprint weekends, there are TWO qualifying sessions:
-     * - Sprint Qualifying → Sprint Race
-     * - Main Qualifying → Main Race
-     * We need to find the qualifying session that comes BEFORE our race session.
-     */
     private suspend fun findQualifyingSessionKey(meetingKey: Int): Int? {
         return try {
             Log.d("RaceInfoFragment", "Querying API: /sessions?meeting_key=$meetingKey")
 
-            // Fetch all sessions for THIS SPECIFIC MEETING
             val sessions = RepositoryProvider.sessionRepository.getSessionsByMeeting(meetingKey)
 
             Log.d("RaceInfoFragment", "Found ${sessions.size} sessions for meeting $meetingKey")
@@ -190,31 +174,27 @@ class RaceInfoFragment : Fragment() {
                 Log.d("RaceInfoFragment", "  - ${session.sessionType}: sessionKey=${session.sessionKey}")
             }
 
-            // Sort sessions by sessionKey (earlier sessions have lower keys)
             val sortedSessions = sessions.sortedBy { it.sessionKey }
 
-            // Find the qualifying session that comes immediately BEFORE our race session
-            // This handles both regular weekends and sprint weekends correctly
             val qualifyingSession = sortedSessions
                 .filter { it.sessionType.equals("Qualifying", ignoreCase = true) }
                 .lastOrNull { it.sessionKey < sessionKey }
 
             if (qualifyingSession != null) {
-                Log.d("RaceInfoFragment", "✅ Qualifying session found: ${qualifyingSession.sessionKey} (before race ${sessionKey})")
+                Log.d("RaceInfoFragment", "Qualifying session found: ${qualifyingSession.sessionKey} (before race ${sessionKey})")
             } else {
-                Log.w("RaceInfoFragment", "⚠️ No qualifying session found before race session $sessionKey")
+                Log.w("RaceInfoFragment", "No qualifying session found before race session $sessionKey")
 
-                // Fallback: Try to find ANY qualifying for this meeting
                 val anyQualifying = sessions.find { it.sessionType.equals("Qualifying", ignoreCase = true) }
                 if (anyQualifying != null) {
-                    Log.d("RaceInfoFragment", "⚠️ Using fallback qualifying: ${anyQualifying.sessionKey}")
+                    Log.d("RaceInfoFragment", "Using fallback qualifying: ${anyQualifying.sessionKey}")
                     return anyQualifying.sessionKey
                 }
             }
 
             qualifyingSession?.sessionKey
         } catch (e: Exception) {
-            Log.e("RaceInfoFragment", "❌ Error finding qualifying session: ${e.message}", e)
+            Log.e("RaceInfoFragment", "Error finding qualifying session: ${e.message}", e)
             null
         }
     }
@@ -240,18 +220,18 @@ class RaceInfoFragment : Fragment() {
                 binding.rvResults.visibility = View.GONE
                 binding.tvEmptyState.visibility = View.VISIBLE
                 binding.tvEmptyState.text = "No race results available yet"
-                Log.w("RaceInfoFragment", "⚠️ Race results are EMPTY for sessionKey: $sessionKey")
+                Log.w("RaceInfoFragment", "Race results are EMPTY for sessionKey: $sessionKey")
             } else {
                 binding.rvResults.visibility = View.VISIBLE
                 binding.tvEmptyState.visibility = View.GONE
                 val adapter = RaceResultsAdapter(results, drivers)
                 binding.rvResults.layoutManager = LinearLayoutManager(requireContext())
                 binding.rvResults.adapter = adapter
-                Log.d("RaceInfoFragment", "✅ Adapter set with ${results.size} items")
-                Log.d("RaceInfoFragment", "✅ RecyclerView adapter item count: ${adapter.itemCount}")
+                Log.d("RaceInfoFragment", "Adapter set with ${results.size} items")
+                Log.d("RaceInfoFragment", "RecyclerView adapter item count: ${adapter.itemCount}")
             }
         } catch (e: Exception) {
-            Log.e("RaceInfoFragment", "❌ ERROR fetching race results: ${e.message}", e)
+            Log.e("RaceInfoFragment", "ERROR fetching race results: ${e.message}", e)
             binding.rvResults.visibility = View.GONE
             binding.tvEmptyState.visibility = View.VISIBLE
             binding.tvEmptyState.text = "Error loading race results"

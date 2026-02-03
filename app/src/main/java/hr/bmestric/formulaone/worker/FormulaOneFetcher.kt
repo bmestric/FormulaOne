@@ -9,9 +9,6 @@ import hr.bmestric.formulaone.domain.model.Session
 import hr.bmestric.formulaone.framework.RepositoryProvider
 import hr.bmestric.formulaone.framework.sendBroadcast
 import hr.bmestric.formulaone.receiver.FormulaOneReceiver
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class FormulaOneFetcher(private val context: Context) {
     suspend fun fetchItems(year: Int = 2025) {
@@ -61,7 +58,6 @@ class FormulaOneFetcher(private val context: Context) {
             }
 
             context.sendBroadcast<FormulaOneReceiver>()
-        //}
     }
 }
 

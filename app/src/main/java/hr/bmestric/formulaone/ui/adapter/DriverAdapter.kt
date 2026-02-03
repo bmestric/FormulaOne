@@ -30,7 +30,6 @@ class DriverAdapter(private val drivers: List<Driver>) : RecyclerView.Adapter<Dr
     override fun onBindViewHolder(holder: DriverViewHolder, position: Int) {
         val driver = drivers[position]
 
-        // Load driver headshot with Picasso
         if (!driver.headshotUrl.isNullOrEmpty()) {
             Picasso.get()
                 .load(driver.headshotUrl)
@@ -41,24 +40,18 @@ class DriverAdapter(private val drivers: List<Driver>) : RecyclerView.Adapter<Dr
             holder.ivDriverHeadshot.setImageResource(R.drawable.driver_helmet)
         }
 
-        // Set driver number
         holder.tvDriverNumber.text = "#${driver.driverNumber}"
 
-        // Set broadcast name
         holder.tvBroadcastName.text = driver.broadcastName
 
-        // Set full name
         holder.tvFullName.text = driver.fullName
 
-        // Set team name
         holder.tvTeamName.text = driver.teamName
 
-        // Set team color dynamically
         try {
             val color = Color.parseColor("#${driver.teamColour}")
             holder.viewTeamColor.setBackgroundColor(color)
         } catch (_: Exception) {
-            // Fallback to gray if invalid hex
             holder.viewTeamColor.setBackgroundColor(Color.GRAY)
         }
     }

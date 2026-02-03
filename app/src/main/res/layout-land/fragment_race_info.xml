@@ -15,23 +15,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Left Side: Circuit Image + Race Info -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <!-- Circuit Image -->
                 <ImageView
                     android:id="@+id/ivCircuitImage"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="@dimen/_180dp"
                     android:scaleType="centerCrop"
                     android:contentDescription="@string/race"
                     tools:src="@drawable/default_track" />
 
-                <!-- Race Info Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,9 +75,8 @@
 
             </LinearLayout>
 
-            <!-- Right Side: Results Section -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
+                android:layout_width="@dimen/_0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="@dimen/_12dp"
@@ -101,7 +97,7 @@
 
                         <TextView
                             android:id="@+id/tvSectionTitle"
-                            android:layout_width="0dp"
+                            android:layout_width="@dimen/_0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/starting_grid"
@@ -120,7 +116,7 @@
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="@dimen/_0dp"
                         android:layout_weight="1"
                         android:layout_marginTop="@dimen/_8dp">
 

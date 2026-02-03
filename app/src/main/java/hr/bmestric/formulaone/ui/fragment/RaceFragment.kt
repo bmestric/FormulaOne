@@ -52,7 +52,6 @@ class RaceFragment : Fragment() {
                 val raceSessions = sessions.filter { it.sessionType.equals("race", ignoreCase = true) }
 
                 val adapter = RaceAdapter(raceSessions, meetingImages) { race ->
-                    // Navigate to RaceInfoFragment when a race is clicked
                     val meeting = meetings.find { it.meetingKey == race.meetingKey }
 
                     val bundle = Bundle().apply {
@@ -73,7 +72,6 @@ class RaceFragment : Fragment() {
                         )
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        // Handle navigation error (e.g., if action doesn't exist)
                     }
                 }
 

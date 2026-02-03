@@ -48,14 +48,3 @@ fun Cursor.toMeetings(): List<Meeting> {
     return meetings
 }
 
-fun Cursor.toMeetingMap(): Map<Int, Meeting> {
-    val meetingsMap = mutableMapOf<Int, Meeting>()
-    use {
-        while (moveToNext()) {
-            val meeting = toMeeting()
-            meetingsMap[meeting.meetingKey] = meeting
-        }
-    }
-    return meetingsMap
-}
-

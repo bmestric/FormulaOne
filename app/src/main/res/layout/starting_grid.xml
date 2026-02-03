@@ -13,7 +13,6 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <!-- Team Color Stripe -->
         <View
             android:id="@+id/viewTeamColor"
             android:layout_width="@dimen/_32dp"
@@ -27,7 +26,6 @@
             android:padding="@dimen/_12dp"
             android:gravity="center_vertical">
 
-        <!-- Position -->
         <TextView
             android:id="@+id/tvPosition"
             android:layout_width="@dimen/_40dp"
@@ -38,9 +36,8 @@
             android:textColor="?attr/colorPrimary"
             android:gravity="center" />
 
-        <!-- Driver Info -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
@@ -65,7 +62,6 @@
 
         </LinearLayout>
 
-        <!-- Lap Time -->
         <TextView
             android:id="@+id/tvLaps"
             android:layout_width="wrap_content"

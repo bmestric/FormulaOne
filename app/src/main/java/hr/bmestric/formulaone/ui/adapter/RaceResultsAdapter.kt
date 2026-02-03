@@ -39,24 +39,20 @@ class RaceResultsAdapter(
         holder.tvDriverName.text = driver?.broadcastName ?: "Driver #${result.driverNumber}"
         holder.tvLaps.text = "${result.numberOfLaps} laps"
 
-        // Show time or DNF status
         holder.tvTime.text = when {
             result.dnf -> "DNF"
             result.position == 1 -> result.lapDuration?.let { formatLapTime(it) } ?: "-"
-            else -> result.gapToLeader ?: "-"  // Already formatted string (e.g., "+1 LAP", "+5.234")
+            else -> result.gapToLeader ?: "-"
         }
 
-        // Set team color stripe
         driver?.teamColour?.let { colorHex ->
             try {
                 val color = Color.parseColor("#$colorHex")
                 holder.viewTeamColor.setBackgroundColor(color)
             } catch (e: IllegalArgumentException) {
-                // If color parsing fails, use default gray
                 holder.viewTeamColor.setBackgroundColor(Color.GRAY)
             }
         } ?: run {
-            // No driver found, use default gray
             holder.viewTeamColor.setBackgroundColor(Color.GRAY)
         }
     }

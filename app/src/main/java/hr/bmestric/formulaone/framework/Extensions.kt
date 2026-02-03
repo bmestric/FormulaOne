@@ -3,9 +3,7 @@ package hr.bmestric.formulaone.framework
 import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Handler
@@ -122,43 +120,3 @@ fun Fragment.setupYearSpinner(
         }
     }
 }
-
-
-//
-//    contentResolver.query(
-//        SESSIONS_CONTENT_URI,
-//        null,
-//        null,
-//        null,
-//        null
-//    )?.use {
-//        val sessionKeyIndex = it.getColumnIndexOrThrow(Session::sessionKey.name)
-//        val sessionTypeIndex = it.getColumnIndexOrThrow(Session::sessionType.name)
-//        val nameIndex = it.getColumnIndexOrThrow(Session::name.name)
-//        val locationIndex = it.getColumnIndexOrThrow(Session::location.name)
-//        val countryIndex = it.getColumnIndexOrThrow(Session::country.name)
-//        val circuitIndex = it.getColumnIndexOrThrow(Session::circuit.name)
-//        val dateStartIndex = it.getColumnIndexOrThrow(Session::dateStart.name)
-//        val dateEndIndex = it.getColumnIndexOrThrow(Session::dateEnd.name)
-//        val yearIndex = it.getColumnIndexOrThrow(Session::year.name)
-//        val meetingKeyIndex = it.getColumnIndexOrThrow(Session::meetingKey.name)
-//
-//        while (it.moveToNext()) {
-//            val session = Session(
-//                sessionKey = it.getInt(sessionKeyIndex),
-//                sessionType = it.getString(sessionTypeIndex),
-//                name = it.getString(nameIndex),
-//                location = it.getString(locationIndex),
-//                country = it.getString(countryIndex),
-//                circuit = it.getString(circuitIndex),
-//                dateStart = it.getString(dateStartIndex),
-//                dateEnd = it.getString(dateEndIndex),
-//                year = it.getInt(yearIndex),
-//                meetingKey = it.getInt(meetingKeyIndex)
-//            )
-//            sessions.add(session)
-//        }
-//    }
-//
-//    return sessions
-//}

@@ -15,7 +15,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Circuit Image -->
             <ImageView
                 android:id="@+id/ivCircuitImage"
                 android:layout_width="match_parent"
@@ -24,7 +23,6 @@
                 android:contentDescription="@string/race"
                 tools:src="@drawable/default_track" />
 
-            <!-- Race Info Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +67,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Results Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +90,7 @@
 
                         <TextView
                             android:id="@+id/tvSectionTitle"
-                            android:layout_width="0dp"
+                            android:layout_width="@dimen/_0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/starting_grid"

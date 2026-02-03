@@ -24,13 +24,10 @@ class DriverRepositoryImpl(
     }
 
     override suspend fun getDriversByYear(year: Int): List<Driver> {
-        // Get race sessions for the year
         val sessions = sessionApi.getRaceSession(year = year, sessionType = "Race")
 
-        // If no sessions found, return empty list
         if (sessions.isEmpty()) return emptyList()
 
-        // Get drivers from the latest race session of the year
         val latestSession = sessions.maxByOrNull { it.dateStart }
 
         return if (latestSession != null) {

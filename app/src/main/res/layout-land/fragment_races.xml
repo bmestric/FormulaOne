@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.RaceFragment">
 
-    <!-- Year Selection Spinner - More compact in landscape -->
+    <!-- Year Selection Spinner -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,10 +35,9 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/_0dp"
         android:layout_weight="1">
 
-        <!-- RecyclerView with reduced padding for landscape - Grid handled in code -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRaces"
             android:layout_width="match_parent"

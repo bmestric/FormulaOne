@@ -43,17 +43,14 @@ class StartingGridAdapter(
             formatLapTime(it)
         } ?: "-"
 
-        // Set team color stripe
         driver?.teamColour?.let { colorHex ->
             try {
                 val color = Color.parseColor("#$colorHex")
                 holder.viewTeamColor.setBackgroundColor(color)
             } catch (e: IllegalArgumentException) {
-                // If color parsing fails, use default gray
                 holder.viewTeamColor.setBackgroundColor(Color.GRAY)
             }
         } ?: run {
-            // No driver found, use default gray
             holder.viewTeamColor.setBackgroundColor(Color.GRAY)
         }
     }

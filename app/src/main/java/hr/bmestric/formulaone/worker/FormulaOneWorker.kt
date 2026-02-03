@@ -2,7 +2,6 @@ package hr.bmestric.formulaone.worker
 
 import android.content.Context
 import androidx.work.CoroutineWorker
-import androidx.work.Worker
 import androidx.work.WorkerParameters
 
 class FormulaOneWorker(private val context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {

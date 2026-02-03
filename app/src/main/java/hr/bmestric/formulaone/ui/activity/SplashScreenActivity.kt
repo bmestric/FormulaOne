@@ -1,20 +1,19 @@
 package hr.bmestric.formulaone.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import hr.bmestric.formulaone.R
-import hr.bmestric.formulaone.worker.FormulaOneWorker
 import hr.bmestric.formulaone.databinding.ActivitySplashScreenBinding
-import hr.bmestric.formulaone.framework.startActivity
 import hr.bmestric.formulaone.framework.applyAnimation
 import hr.bmestric.formulaone.framework.callDelayed
 import hr.bmestric.formulaone.framework.getBooleanPreference
 import hr.bmestric.formulaone.framework.isOnline
 import hr.bmestric.formulaone.framework.setBooleanPreference
+import hr.bmestric.formulaone.framework.startActivity
+import hr.bmestric.formulaone.worker.FormulaOneWorker
 
 private const val DELAY = 3000L
 const val DATA_IMPORTED = "hr.bmestric.formulaone.data_imported"
