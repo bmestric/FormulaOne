@@ -9,7 +9,16 @@
         tools:layout="@layout/fragment_races"
         android:id="@+id/menuRace"
         android:name="hr.bmestric.formulaone.ui.fragment.RaceFragment"
-        android:label="@string/items" />
+        android:label="@string/race">
+
+        <action
+            android:id="@+id/action_menuRace_to_raceInfoFragment"
+            app:destination="@id/raceInfoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
 
     <fragment
         tools:layout="@layout/fragment_about"
@@ -28,5 +37,11 @@
         android:id="@+id/menuSettings"
         android:name="hr.bmestric.formulaone.ui.fragment.SettingsFragment"
         android:label="@string/settings" />
+
+    <fragment
+        android:id="@+id/raceInfoFragment"
+        android:name="hr.bmestric.formulaone.ui.fragment.RaceInfoFragment"
+        android:label="Race Details"
+        tools:layout="@layout/fragment_race_info" />
 
 </navigation>
